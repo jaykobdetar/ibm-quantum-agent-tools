@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ibm-quantum-agent"
+version = "0.1.0"
+description = "Local MCP tools for IBM Quantum with private file-based credentials"
+requires-python = ">=3.11"
+dependencies = ["mcp==1.30.0", "qiskit==2.5.2", "qiskit-ibm-runtime==0.49.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<9"]
+
+[project.scripts]
+ibm-quantum-agent = "ibm_quantum_agent.server:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
