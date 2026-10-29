@@ -22,6 +22,7 @@ Isolated Linux CPython 3.13.13 environment, official PyPI dependencies from `req
 - Installed the built wheel with `uv pip install --offline --no-deps --reinstall dist/ibm_quantum_agent-0.1.0-py3-none-any.whl`; reran all tests: **52 passed** (2.31 seconds). Repeated the MCP example successfully from the wheel installation.
 - `uv pip check`: all 61 installed packages compatible.
 - Two restricted-sandbox runs each returned 51 passed and one MCP stdio initialization timeout (30-second request timeout). The complete suite passed outside that sandbox with the same environment and wheel; no source workaround was made. The initial default uv cache was read-only in the sandbox; a task-specific `/tmp` cache allowed offline wheel installation.
+- After adding the owner-approved license, rebuilt the source distribution and wheel and verified their LICENSE contents plus `License-Expression: MIT` and `License-File: LICENSE` wheel metadata. No runtime source changed in this follow-up.
 - `bash -n register-codex.sh` and `bash register-codex.sh --help`: passed without installation or registration.
 
 Dependency installation requires network access. Tests and the example exercise local behavior; they are not evidence of IBM account access or live API compatibility. Only Python 3.13 on Linux was tested, despite the declared Python 3.11+ support. Dependency pins are version pins, not cryptographic hashes or a vulnerability audit.
@@ -34,7 +35,7 @@ The initial commit contains a personal home-directory path and credential-file l
 
 ## Owner decisions before public release
 
-- [ ] Confirm source ownership and any third-party provenance; choose and add a license with accurate notices. No license was invented during cleanup.
+- [x] Owner stated on 2026-10-29 that all project code was created by AI and explicitly authorized MIT licensing. Added LICENSE and SPDX package metadata on that basis, preserving dependency notices. This records owner authorization, not independent verification of ownership or third-party provenance.
 - [ ] Review the historical personal path and explicitly accept its disclosure, or arrange a separately authorized history cleanup before publication. Do not publish on the assumption that the new commit removes it from history.
 - [ ] Review and merge the draft changes, then separately authorize a visibility change. This task does not change visibility.
 - [ ] Optionally validate supported Python/OS combinations and a live read-only IBM connection. Hardware validation would require separate explicit authorization and is not needed for local smoke tests.
