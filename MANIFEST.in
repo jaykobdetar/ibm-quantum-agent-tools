@@ -1,0 +1,3 @@
+include requirements.lock setup_local.py register-codex.sh README.source.md RELEASE_READINESS.md
+recursive-include examples *.json *.py
+recursive-include tests *.py

@@ -8,3 +8,11 @@ node_modules/
 *.key
 *.pem
 .mcp.json
+
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+.coverage
+apikey*.json
+credentials*.json
