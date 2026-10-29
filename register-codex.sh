@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
+# Portable compatibility wrapper; requires an explicit credential-file argument.
 set -euo pipefail
-codex mcp add ibm-quantum --env IBM_QUANTUM_API_KEY_FILE=/home/jaykob/Downloads/apikey.json -- /home/jaykob/Documents/Codex/2026-09-07/thi/outputs/ibm-quantum/.venv/bin/python -m ibm_quantum_agent
+root="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+exec python3 "$root/setup_local.py" --register-codex "$@"
